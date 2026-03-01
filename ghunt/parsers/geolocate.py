@@ -1,8 +1,6 @@
 from ghunt.objects.apis import Parser
 from ghunt.objects.base import Position
 
-from typing import *
-
 
 class GeolocationResponse(Parser):
     def __init__(self):

@@ -1,33 +1,32 @@
 from typing import *
 from pathlib import Path
 import json
-from dateutil.relativedelta import relativedelta
 from datetime import datetime
 import base64
 
-from autoslot import Slots
-import httpx
 
 from ghunt.errors import GHuntInvalidSession
-
 
 # class SmartObj(Slots): # Not Python 3.13 compatible so FUCK it fr fr
 #     pass
 
-class SmartObj():
+
+class SmartObj:
     pass
+
 
 class AndroidCreds(SmartObj):
     def __init__(self) -> None:
         self.master_token: str = ""
         self.authorization_tokens: Dict = {}
 
+
 class GHuntCreds(SmartObj):
     """
-        This object stores all the needed credentials that GHunt uses,
-        such as cookies, OSIDs, keys and tokens.
+    This object stores all the needed credentials that GHunt uses,
+    such as cookies, OSIDs, keys and tokens.
     """
-    
+
     def __init__(self, creds_path: str = "") -> None:
         self.cookies: Dict[str, str] = {}
         self.osids: Dict[str, str] = {}
@@ -56,13 +55,15 @@ class GHuntCreds(SmartObj):
                 self.osids = data["osids"]
 
                 self.android.master_token = data["android"]["master_token"]
-                self.android.authorization_tokens = data["android"]["authorization_tokens"]
+                self.android.authorization_tokens = data["android"][
+                    "authorization_tokens"
+                ]
 
             except Exception:
                 raise GHuntInvalidSession("Stored session is corrupted.")
         else:
             raise GHuntInvalidSession("No stored session found.")
-        
+
         if not self.are_creds_loaded():
             raise GHuntInvalidSession("Stored session is incomplete.")
         if not silent:
@@ -75,8 +76,8 @@ class GHuntCreds(SmartObj):
             "osids": self.osids,
             "android": {
                 "master_token": self.android.master_token,
-                "authorization_tokens": self.android.authorization_tokens
-            }
+                "authorization_tokens": self.android.authorization_tokens,
+            },
         }
 
         with open(self.creds_path, "w", encoding="utf-8") as f:
@@ -85,12 +86,15 @@ class GHuntCreds(SmartObj):
         if not silent:
             print(f"\n[+] Creds have been saved in {self.creds_path} !")
 
+
 ### Maps
+
 
 class Position(SmartObj):
     def __init__(self):
         self.latitude: float = 0.0
         self.longitude: float = 0.0
+
 
 class MapsLocation(SmartObj):
     def __init__(self):
@@ -100,7 +104,8 @@ class MapsLocation(SmartObj):
         self.position: Position = Position()
         self.tags: List[str] = []
         self.types: List[str] = []
-        self.cost_level: int = 0 # 1-4
+        self.cost_level: int = 0  # 1-4
+
 
 class MapsReview(SmartObj):
     def __init__(self):
@@ -110,12 +115,14 @@ class MapsReview(SmartObj):
         self.location: MapsLocation = MapsLocation()
         self.date: datetime = None
 
+
 class MapsPhoto(SmartObj):
     def __init__(self):
         self.id: str = ""
         self.url: str = ""
         self.location: MapsLocation = MapsLocation()
         self.date: datetime = None
+
 
 ### Drive
 class DriveExtractedUser(SmartObj):

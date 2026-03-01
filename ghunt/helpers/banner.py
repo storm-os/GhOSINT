@@ -1,5 +1,6 @@
 from ghunt import globals as gb
 
+
 def show_banner():
 
     banner = """
@@ -15,5 +16,5 @@ def show_banner():
              [bold]By: mxrch (🐦 [deep_sky_blue1][link=https://x.com/mxrchreborn]@mxrchreborn[/link][/deep_sky_blue1])
        [indian_red1]Support my work on GitHub Sponsors ! 💖[/indian_red1][/bold]
     """
-                                                
+
     gb.rc.print(banner)
