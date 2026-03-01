@@ -7,7 +7,6 @@ from ghunt.parsers.drive import (
     DriveFile,
 )
 from ghunt.objects.base import DriveExtractedUser
-from ghunt.helpers.utils import oprint  # TEMP
 
 
 def get_users_from_file(file: DriveFile) -> List[DriveExtractedUser]:
