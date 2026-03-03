@@ -5,8 +5,8 @@ from pathlib import Path
 
 
 def storm_gate():
-    # 1. Baca input dari Engine Rust Storm
-    # Contoh input: {"module": "email", "target": "target@gmail.com", "json_out": "result.json"}
+    # 1. Read input from Engine Storm
+    # Input example: {"module": "email", "target": "target@gmail.com", "json_out": "result.json"}
     try:
         line = sys.stdin.readline()
         if not line:
@@ -19,7 +19,6 @@ def storm_gate():
     target = data.get("target")
     json_path = Path(data.get("json_out")) if data.get("json_out") else None
 
-    # 2. Eksekusi Langsung ke Jantung GHunt
     match module:
         case "email":
             from ghunt.modules import email
@@ -36,7 +35,7 @@ def storm_gate():
         case "geolocate":
             from ghunt.modules import geolocate
 
-            # geolocate butuh bssid atau file, sesuaikan input dari Storm
+            # geolocate need bssid or file, adjust input from Storm
             asyncio.run(geolocate.main(None, target, None, json_path))
         case "login":
             from ghunt.modules import login
