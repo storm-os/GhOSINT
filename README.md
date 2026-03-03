@@ -26,7 +26,7 @@ Features :
 
 # ⚙️ Installation
 
-How to install GhOSINT here requires installation **Storm-Framework** because GhOSINT has been modified to only be able to chat with its parent.
+How to install GhOSINT here requires installation [Storm-Framework](https://github.com/storm-os/storm-framework) because GhOSINT has been modified to only be able to chat with its parent.
 
 # 💃 Usage
 
@@ -46,7 +46,7 @@ This is just a modified module, and now it can only be run via [Storm-Framework]
 
 # 🧑‍💻 Developers
 
-📕 I started writing some docs [here](https://github.com/mxrch/GHunt/wiki) and examples [here](https://github.com/mxrch/GHunt/tree/master/examples), feel free to contribute !
+📕 I started writing some docs [here](https://github.com/mxrch/GHunt/wiki) and examples [here](https://github.com/storm-os/GhOSINT/tree/main/examples), feel free to contribute !
 
 To use GHunt as a lib, you can't use pipx because it uses a venv.\
 So you should install GHunt with pip :
@@ -55,7 +55,7 @@ $ pip3 install ghunt
 ```
 
 And now, you should be able to `import ghunt` in your projects !\
-You can right now play with the [examples](https://github.com/mxrch/GHunt/tree/master/examples).
+You can right now play with the [examples](https://github.com/storm-os/GhOSINT/tree/main/examples).
 
 # 📮 Details
 
