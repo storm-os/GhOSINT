@@ -4,6 +4,7 @@
 
 #### 🌐 GHunt Online version : https://osint.industries
 #### 🐍 Now Python 3.13 compatible !
+#### Authors : mxrch (modified by zxelzy)
 
 <br>
 
